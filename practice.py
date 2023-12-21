@@ -24,7 +24,7 @@ class Terminal:
     def get_money(self, pin_code, money):
         if pin_code == self.__pin_code:
             if self.money >= money:
-                if money == round(money):
+                if money % 10 == 0:
                     self.money -= money
                 else:
                     raise Exception('Invalid amount of money')
@@ -35,11 +35,9 @@ class Terminal:
     
     
 card = Terminal(1234567891234567, 1234)
-card.put(1234, 5655)
+card.put(1234, 5600)
 print(card.money)
-card.put(1234, 56789)
+card.put(1234, 5600)
 print(card.money)
-card.get_money(1234, 62440)
-print(card.money)
-card.get_money(1234, 4)
+card.get_money(1234, 11204)
 print(card.money)
